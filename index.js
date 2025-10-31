@@ -8,7 +8,7 @@ const postRoutes = require('./routes/posts');
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/blog-db')
+mongoose.connect('process.env.DATABASE_URL')
   .then(() => console.log('MongoDB successfully connected!'))
   .catch(err => console.error('MongoDB connection failed:', err));
 
