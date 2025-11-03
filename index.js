@@ -5,10 +5,12 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000; 
 const postRoutes = require('./routes/posts'); 
+require('dotenv').config();
 app.use(express.json());
 app.use(cors());
-
-mongoose.connect('process.env.DATABASE_URL')
+const mongouri=process.env.DATABASE_URL;
+console.log(mongouri)
+mongoose.connect(mongouri)
   .then(() => console.log('MongoDB successfully connected!'))
   .catch(err => console.error('MongoDB connection failed:', err));
 
